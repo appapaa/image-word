@@ -1,0 +1,60 @@
+@import '_const.scss';
+.app-ui-scroll{
+  &::-webkit-scrollbar { 
+    width: $scroll_width;
+  }
+  &::-webkit-scrollbar-track {
+    border: 1px solid $color_gray;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color_gray;
+  }
+}
+.app-ui-abs {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.app-ui-btn {
+  transition: transform .3s;
+  &:active{
+    transform:scale(.9);
+  }
+}
+.app-ui-screen {
+  @extend .app-ui-abs;
+}
+.app-ui-panel {
+  height: $panel_height;
+  box-sizing: border-box;
+}
+.app-ui-footer {
+  @extend .app-ui-abs;
+  top:auto;
+  height: $panel_height;
+  box-sizing: border-box;
+}
+.app-ui-content {
+  @extend .app-ui-abs;
+  top:$panel_height;
+}
+.app-ui-image {
+  width:100%;
+  height:70vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  // min-height:70vw;
+  // box-sizing: border-box;
+  // background-color: lightgrey;
+  // display: flex;
+  // font-size: 30px;
+  // color:gray;
+  // justify-content: center;
+  // align-items: center;
+}

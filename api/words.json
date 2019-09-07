@@ -1,0 +1,167 @@
+{
+    "data": [
+        {
+            "word": "abandon",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Отказаться",
+                    "comment": "Отказаться от кого-то или покидать что-то"
+                }
+            ],
+            "link": "abandon.png",
+            "examples": [
+                "He wished to God she would abandon her search"
+            ]
+        },
+        {
+            "word": "abash",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Смущать",
+                    "comment": "Ставить в неловкое положение, в редких случаях запугать"
+                }
+            ],
+            "link": "abash.png",
+            "examples": [
+                "Ross vowed to humiliate his opponent and abash him in any way possible"
+            ]
+        },
+        {
+            "word": "abhore",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Ненавидеть",
+                    "comment": "Питать отвращенеи к чему-либо"
+                }
+            ],
+            "link": "abhore.png",
+            "examples": [
+                "I abhor the smell of burnt popcorn"
+            ]
+        },
+        {
+            "word": "castigate",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Бичевать"
+                }
+            ],
+            "link": "castigate.png",
+            "examples": [
+                "How dare you castigate him when you have done the same thing in the past?"
+            ]
+        },
+        {
+            "word": "dandelion",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Одуванчик"
+                }
+            ],
+            "link": "dandelion.png",
+            "examples": [
+                "Dandelion's seeds flying through the air."
+            ]
+        },
+        {
+            "word": "dearth",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Нехватка",
+                    "comment": "Какого либо ресурса зачастую"
+                }
+            ],
+            "link": "dearth.png",
+            "examples": [
+                "The dearth of money going into cancer research is putting many lives in danger"
+            ]
+        },
+        {
+            "word": "debase",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Принижать",
+                    "comment": "Очернить"
+                }
+            ],
+            "link": "debase.png",
+            "examples": [
+                "The celebrity’s family tried to block the production of his biographical film because they felt it would debase his memory"
+            ]
+        },
+        {
+            "word": "feign",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Симулировать",
+                    "comment": "притворяться"
+                }
+            ],
+            "link": "feign.png",
+            "examples": [
+                "I understand some of your impractical jokes, but to feign your own death on April Fool's Day is a little over the top"
+            ]
+        },
+        {
+            "word": "frolic",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Резвиться"
+                }
+            ],
+            "link": "frolic.png",
+            "examples": [
+                "Most toddlers were having fun playing around in the water, but Chasity was too scared to frolic in the stream"
+            ]
+        },
+        {
+            "word": "feral",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "Дикий",
+                    "comment": "Чаще к животным"
+                }
+            ],
+            "link": "feral.png",
+            "examples": [
+                "The feral animals in the backyard have completely destroyed my garden"
+            ]
+        },
+        {
+            "word": "gluttony",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "обжорство"
+                }
+            ],
+            "link": "gluttony.png",
+            "examples": [
+                "The depressed woman’s gluttony has made her extremely obese"
+            ]
+        },
+        {
+            "word": "jeopardize",
+            "similar": [],
+            "translation": [
+                {
+                    "word": "подвергать опасности"
+                }
+            ],
+            "link": "jeopardize.png",
+            "examples": [
+                "Lying on your insurance application will jeopardize your benefits"
+            ]
+        }
+    ]
+}
