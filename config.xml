@@ -1,12 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.appapaa.imageword" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>ImageWord</name>
+    <name>image-word</name>
     <description>
         A blank PhoneGap app.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
+    <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <content src="index.html" />
     <access origin="*" />
 </widget>
