@@ -8,7 +8,7 @@ import ListItem from 'components/Exclude/ListItem';
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 class Plugin extends Component {
   state = {
-    char: 'P'
+    char: 'A'
   }
   _goToChar = (char) => this.setState({ char });
 

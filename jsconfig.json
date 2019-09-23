@@ -1,14 +1,23 @@
 {
   "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "sourceMap": true,
     "target": "ES6",
-    "baseUrl": "./src"
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "lib": [
+      "ES6",
+      "dom"
+    ],
   },
   "exclude": [
     "node_modules",
     "**/node_modules/*"
   ],
   "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.quoteStyle": "single"
+  "javascript.preferences.quoteStyle": "single"
 }

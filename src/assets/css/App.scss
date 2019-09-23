@@ -1,6 +1,6 @@
-@import '_ui.scss';
+@import "_ui.scss";
 
-$left_panel_width:66px;
+$left_panel_width: 66px;
 .app {
   @extend .app-ui-abs;
   text-align: center;
@@ -10,20 +10,20 @@ $left_panel_width:66px;
 * Menu
 */
 
-.app-menu{
+.app-menu {
   display: flex;
   flex-direction: column;
 }
-.app-menu-btngroup{
+.app-menu-btngroup {
   margin: 0 10vw 10vw 10vw;
   height: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  flex:1;
+  flex: 1;
 }
-.app-menu-btn{
-  border:2px solid currentColor;
+.app-menu-btn {
+  border: 2px solid currentColor;
   text-align: center;
   box-sizing: border-box;
   display: flex;
@@ -37,34 +37,34 @@ $left_panel_width:66px;
 /**
 * nav
 */
-.app-nav-btn{
+.app-nav-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex:1;
+  flex: 1;
   width: 10px;
-  color:$color_gray;
+  color: $color_gray;
 }
 
 /**
 * Learn
 */
 
-.app-learn{
+.app-learn {
   display: flex;
   flex-direction: column;
 }
-.app-learn-panel{
+.app-learn-panel {
   display: flex;
   border-bottom: 2px solid $color_black;
 }
-.app-learn-content{
+.app-learn-content {
   height: 10px;
-  flex:1;
+  flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
 }
-.app-learn-word{
+.app-learn-word {
   border-bottom: 2px solid $color_gray;
   height: 40px;
   line-height: 40px;
@@ -75,45 +75,49 @@ $left_panel_width:66px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
-.app-learn-translation{
+.app-learn-translation {
   line-height: 1.1;
   border-top: 2px solid $color_gray;
   border-bottom: 2px solid $color_gray;
   padding: 10px 5px;
 }
-.app-learn-examples{
+.app-learn-examples {
   text-align: left;
   white-space: pre-wrap;
   font-size: 15px;
   line-height: 1.1;
   padding: 10px 5px;
 }
-.app-learn-footer{
+.app-learn-footer {
   height: 40px;
   line-height: 40px;
   border-top: 2px solid $color_gray;
-  width:100%;
+  width: 100%;
   display: flex;
 }
-.app-learn-btn{
+.app-learn-btn {
   width: 10px;
-  flex:3;
-  &.-active{
+  flex: 3;
+  &.-active {
     background-color: $color_black;
-    color:#fff;
-    flex:2;
+    color: #fff;
+    flex: 2;
   }
 }
-.app-exclude-panel{
+
+/**
+* Exclude
+*/
+
+.app-exclude-panel {
   display: flex;
   border-bottom: 2px solid $color_black;
 }
-.app-exclude-content-left{
+.app-exclude-content-left {
   @extend .app-ui-abs;
-  top:$panel_height;
-  bottom:$footer_height;
+  top: $panel_height;
+  bottom: $footer_height;
   width: $left_panel_width;
   padding: 20px 0;
   right: auto;
@@ -121,19 +125,19 @@ $left_panel_width:66px;
   flex-wrap: wrap;
   box-sizing: border-box;
 }
-.app-exclude-content{
+.app-exclude-content {
   @extend .app-ui-abs;
-  top:$panel_height + 10px;
+  top: $panel_height + 10px;
   left: $left_panel_width + 10px;
-  bottom:  $footer_height + 10px;
+  bottom: $footer_height + 10px;
   right: 10px;
 }
-.app-exclude-content__list{
+.app-exclude-content__list {
   @extend .app-ui-abs;
   overflow-x: hidden;
   overflow-y: scroll;
 }
-.app-exclude-content__before{
+.app-exclude-content__before {
   @extend .app-ui-abs;
   bottom: auto;
   height: 250px;
@@ -141,7 +145,7 @@ $left_panel_width:66px;
   pointer-events: none;
   background: linear-gradient(to top, transparent, #ffffffc7);
 }
-.app-exclude-content__after{
+.app-exclude-content__after {
   @extend .app-ui-abs;
   top: auto;
   height: 250px;
@@ -149,32 +153,101 @@ $left_panel_width:66px;
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, #ffffffc7);
 }
-.app-exclude-btn-char{
-  border:  1px solid $color_black;
+.app-exclude-btn-char {
+  border: 1px solid $color_black;
   box-sizing: border-box;
   width: 25px;
   min-width: 25px;
   font-size: 25px;
-  flex:1;
+  flex: 1;
   line-height: 28px;
   height: 30px;
-  margin:4px;
-  &.-active{
+  margin: 4px;
+  &.-active {
     background-color: $color_black;
-    color:#fff;
+    color: #fff;
   }
 }
-.app-exclude-list-item{
-  border:  1px solid $color_black;
+.app-exclude-list-item {
+  border: 1px solid $color_black;
   box-sizing: border-box;
   margin: 10px;
   font-size: 25px;
-  &.-active{
+  &.-active {
     background-color: $color_black;
-    color:#fff;
+    color: #fff;
   }
 }
-.app-exclude-footer{
+.app-exclude-footer {
   border-top: 2px solid $color_black;
   display: flex;
+}
+
+/**
+* Learn
+*/
+
+.app-test {
+  display: flex;
+  flex-direction: column;
+}
+.app-test-panel {
+  display: flex;
+  border-bottom: 2px solid $color_black;
+}
+.app-test-content {
+  height: 10px;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.app-test-list {
+  width: 100%;
+  padding: 5px 0;
+  flex: 10;
+  overflow: hidden;
+  height: 100px;
+}
+.app-test-word {
+  border-top: 2px solid $color_gray;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 25px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.app-test-footer {
+  height: 40px;
+  line-height: 40px;
+  border-top: 2px solid $color_gray;
+  width: 100%;
+  display: flex;
+}
+.app-test-text_btn {
+  width: calc(50% - 10px);
+  float: left;
+  height: 80px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid $color_gray;
+  text-align: center;
+  float: left;
+  box-sizing: border-box;
+}
+.app-test-btn {
+  width: 10px;
+  flex: 3;
+  &.-active {
+    background-color: $color_black;
+    color: #fff;
+    flex: 2;
+  }
 }
