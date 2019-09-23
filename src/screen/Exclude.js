@@ -60,7 +60,7 @@ class Plugin extends Component {
         <Footer className="app-exclude-footer">
           <Btn
             className='app-nav-btn'
-            onClick={() => _.size(list) && changeStudy([list], false)}
+            onClick={() => _.size(list) && changeStudy(list, false)}
           >deselect all</Btn>
         </Footer>
       </Screen>

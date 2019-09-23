@@ -31,7 +31,7 @@ export const getWords = () => (dispatch, getState, { ajax }) => {
 export const changeStudy = (words, studied = false) => (dispatch, getState) => {
     const { words: { listByWord } } = getState();
     const _listByWord = _.clone(listByWord);
-    _.map(words, (word) => {
+    _.forEach(words, (word) => {
         if (_listByWord[word].studied !== studied) {
             _listByWord[word] = _.extend({}, _listByWord[word], { studied });
         }
