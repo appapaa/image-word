@@ -6,7 +6,7 @@ import _ from 'lodash';
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 class Plugin extends Component {
     render() {
-        const { data: { word, studied }, changeStudy } = this.props;
+        const { data: { word }, studied, changeStudy } = this.props;
         return (
             <Btn
                 className='app-exclude-list-item'
@@ -19,8 +19,9 @@ class Plugin extends Component {
 }
 Plugin.defaultName = 'ListItem';
 
-const mapState = ({ words: { listByWord } }, { word }) => ({
-    data: listByWord[word]
+const mapState = ({ words: { listByWord, studyByWord } }, { word }) => ({
+    data: listByWord[word],
+    studied: !!studyByWord[word]
 });
 const mapDispatch = { changeStudy };
 

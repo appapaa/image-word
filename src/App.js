@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import 'assets/css/App.scss';
 import Menu from 'screen/Menu';
 import Learn from 'screen/Learn';
+import Test from 'screen/Test';
 import Exclude from 'screen/Exclude';
 import { getWords } from 'redux/words';
 import _ from 'lodash';
@@ -17,6 +18,10 @@ class App extends Component {
         />;
       case 'Learn':
         return <Learn
+          {...plugin.params}
+        />;
+      case 'Test':
+        return <Test
           {...plugin.params}
         />;
       case 'Exclude':

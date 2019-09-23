@@ -5,12 +5,28 @@ import { navigationPush } from 'redux/navigation';
 import _ from 'lodash';
 
 class Plugin extends Component {
+  _onClick = ({ id, text }) => {
+    const { navigationPush, nextWord, studyByWord } = this.props;
+    if (id === 'Test') {
+      if (_.size(studyByWord)) {
+        const list = _.sortBy(_.keys(studyByWord), () => Math.random());
+        navigationPush(id, { word: list[0] });
+      }
+      else {
+        alert('Нет слов');
+      }
+
+    }
+    else {
+      navigationPush(id, { word: nextWord });
+    }
+  }
   renderBtn = ({ id, text }) => {
     const { navigationPush, nextWord } = this.props;
     return <Btn
       className='app-menu-btn'
       key={id}
-      onClick={() => navigationPush(id, { word: nextWord })}
+      onClick={() => this._onClick({ id, text })}
     >{text}</Btn>
   };
 
@@ -33,8 +49,8 @@ const BTNS = [
 ];
 Plugin.defaultName = 'MenuScreen';
 
-const mapState = ({ words: { nextWord } }) => ({
-  nextWord
+const mapState = ({ words: { nextWord, studyByWord } }) => ({
+  nextWord, studyByWord
 });
 const mapDispatch = { navigationPush };
 

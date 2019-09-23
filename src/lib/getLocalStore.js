@@ -1,7 +1,7 @@
 const getLocalStore = (name) => {
-    const store = window.localStorage(name);
+    const store = window.localStorage[name];
     return store
-        ? window.JSON.parse(window.localStorage(name))
+        ? window.JSON.parse(store)
         : undefined;
 }
 export default getLocalStore;
