@@ -14,6 +14,11 @@ $left_panel_width: 66px;
   display: flex;
   flex-direction: column;
 }
+.app-line-black{
+  height: inherit;
+  border-left: 2px solid $color_black;
+
+}
 .app-menu-btngroup {
   margin: 0 10vw 10vw 10vw;
   height: 10px;
@@ -44,6 +49,10 @@ $left_panel_width: 66px;
   flex: 1;
   width: 10px;
   color: $color_gray;
+  &.-active {
+    background-color: $color_black;
+    color: #fff;
+  }
 }
 
 /**
@@ -112,7 +121,7 @@ $left_panel_width: 66px;
 
 .app-exclude-panel {
   display: flex;
-  border-bottom: 2px solid $color_black;
+  border-bottom: 2px solid $color_gray;
 }
 .app-exclude-content-left {
   @extend .app-ui-abs;
@@ -154,7 +163,7 @@ $left_panel_width: 66px;
   background: linear-gradient(to bottom, transparent, #ffffffc7);
 }
 .app-exclude-btn-char {
-  border: 1px solid $color_black;
+  border: 1px solid $color_gray;
   box-sizing: border-box;
   width: 25px;
   min-width: 25px;
@@ -169,7 +178,7 @@ $left_panel_width: 66px;
   }
 }
 .app-exclude-list-item {
-  border: 1px solid $color_black;
+  border: 1px solid $color_gray;
   box-sizing: border-box;
   margin: 10px;
   font-size: 25px;
@@ -179,12 +188,12 @@ $left_panel_width: 66px;
   }
 }
 .app-exclude-footer {
-  border-top: 2px solid $color_black;
+  border-top: 2px solid $color_gray;
   display: flex;
 }
 
 /**
-* Learn
+* Test
 */
 
 .app-test {
@@ -193,7 +202,13 @@ $left_panel_width: 66px;
 }
 .app-test-panel {
   display: flex;
-  border-bottom: 2px solid $color_black;
+  border-bottom: 2px solid $color_gray;
+}
+.app-test-info{
+  height: 70px;
+  line-height: 70px;
+  border-top: 2px solid $color_gray;
+
 }
 .app-test-content {
   height: 10px;
@@ -205,10 +220,16 @@ $left_panel_width: 66px;
 }
 .app-test-list {
   width: 100%;
-  padding: 5px 0;
+  padding: 5px;
   flex: 10;
   overflow: hidden;
   height: 100px;
+}
+.app-test-list-left,
+.app-test-list-right{
+  width: calc(50% - 5px);
+  height: 100%;
+  float: left;
 }
 .app-test-word {
   border-top: 2px solid $color_gray;
@@ -230,9 +251,9 @@ $left_panel_width: 66px;
   display: flex;
 }
 .app-test-text_btn {
-  width: calc(50% - 10px);
+  width: calc(100% - 10px);
   float: left;
-  height: 80px;
+  height: calc(25% - 10px);
   margin: 5px;
   display: flex;
   align-items: center;
@@ -241,6 +262,10 @@ $left_panel_width: 66px;
   text-align: center;
   float: left;
   box-sizing: border-box;
+  &.-active {
+    background-color: $color_black;
+    color: #fff;
+  }
 }
 .app-test-btn {
   width: 10px;
@@ -248,6 +273,5 @@ $left_panel_width: 66px;
   &.-active {
     background-color: $color_black;
     color: #fff;
-    flex: 2;
   }
 }

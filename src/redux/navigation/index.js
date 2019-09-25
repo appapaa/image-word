@@ -9,7 +9,11 @@ const initialState = {
 export const reducer = getReducer(PREFIX_, initialState);
 
 
+export const onHashChange = () => (dispatch, getState) => {
+    // navigationGoBack
+}
 export const navigationGoBack = () => (dispatch, getState) => {
+    window.history.back();
     const { navigation: { path } } = getState();
     dispatch({
         type: PREFIX_ + 'GOBACK',
@@ -34,6 +38,7 @@ export const navigationSet = (id, params) => (dispatch, getState) => {
 }
 
 export const navigationPush = (id, params) => (dispatch, getState) => {
+    window.location.hash = id;
     const { navigation: { path } } = getState();
     dispatch({
         type: PREFIX_ + 'PUSH',

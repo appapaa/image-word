@@ -6,6 +6,7 @@ import Learn from 'screen/Learn';
 import Test from 'screen/Test';
 import Exclude from 'screen/Exclude';
 import { getWords } from 'redux/words';
+import { onHashChange } from 'redux/navigation';
 import _ from 'lodash';
 class App extends Component {
   renderPlugin() {
@@ -32,9 +33,9 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    const { getWords } = this.props;
+    const { getWords, onHashChange } = this.props;
     getWords();
-    window.addEventListener("hashchange", this.props.exit, false);
+    window.addEventListener("hashchange", onHashChange, false);
   }
 
   render() {
@@ -52,6 +53,6 @@ const mapState = ({ navigation }) => {
   }
 
 };
-const mapDispatch = { getWords };
+const mapDispatch = { getWords, onHashChange };
 
 export default connect(mapState, mapDispatch)(App);
