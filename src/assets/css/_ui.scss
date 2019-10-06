@@ -28,6 +28,7 @@
 }
 .app-ui-screen {
   @extend .app-ui-abs;
+  background-color: #fff;
 }
 .app-ui-panel {
   height: $panel_height;

@@ -3,47 +3,36 @@ import _ from 'lodash'
 export const PREFIX_ = 'NAVIGATION_'
 
 const initialState = {
-    path: [{ id: 'Menu' }]
+    path: []
     // path: [{ id: 'Exclude', params: { word: 'burst' } }]
 };
 export const reducer = getReducer(PREFIX_, initialState);
 
 
 export const onHashChange = () => (dispatch, getState) => {
-    // navigationGoBack
+    const { navigation: { path } } = getState();
+    const id = (window.location.hash || '').replace('#', '');
+    dispatch({
+        type: PREFIX_ + 'ON_HASH_CHANGE',
+        payload: {
+            path: path.concat(id)
+        }
+    })
 }
 export const navigationGoBack = () => (dispatch, getState) => {
     window.history.back();
-    const { navigation: { path } } = getState();
-    dispatch({
-        type: PREFIX_ + 'GOBACK',
-        payload: {
-            path: path.slice(0, -1)
-        }
-    })
 };
 
 export const navigationGoHome = () => (dispatch) => {
-    dispatch(navigationSet('Menu'))
+    window.location.hash = 'Menu';
 }
 
 
-export const navigationSet = (id, params) => (dispatch, getState) => {
-    dispatch({
-        type: PREFIX_ + 'SET',
-        payload: {
-            path: [{ id, params }]
-        }
-    })
+export const navigationSet = (id) => (dispatch, getState) => {
+    window.location.hash = id
 }
 
-export const navigationPush = (id, params) => (dispatch, getState) => {
+export const navigationPush = (id) => (dispatch, getState) => {
     window.location.hash = id;
-    const { navigation: { path } } = getState();
-    dispatch({
-        type: PREFIX_ + 'PUSH',
-        payload: {
-            path: _.union(path, [{ id, params }])
-        }
-    })
+
 };

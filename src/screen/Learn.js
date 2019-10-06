@@ -4,50 +4,37 @@ import { connect } from "react-redux";
 import { navigationGoHome } from 'redux/navigation';
 import { next } from 'redux/words';
 import _ from 'lodash';
+import Learn from 'components/Learn';
+import Watch from 'components/Watch';
 
 class Plugin extends Component {
+  state = {
+    words: []
+  }
+  _changeWords = () => {
+    const { words } = this.state;
+    const { word } = this.props;
+    this.setState({
+      words: words.concat(word).slice(-2)
+    })
+  }
   render() {
-    const { navigationGoHome, data = {}, next } = this.props;
-    const { word, examples, similar, link, translation } = data;
+    const { words } = this.state;
+    const { word } = this.props;
     return (
-      <Screen className="app-learn">
-        <Panel className="app-learn-panel">
-          <Btn
-            className='app-nav-btn'
-            onClick={navigationGoHome}>home</Btn>
-        </Panel>
-        <div className='app-learn-word'>
-          {word}
-          {_.size(similar) ? ' / ' + similar.join(', ') : ''}
-        </div>
-        <div className='app-learn-content'>
-          <Image src={link} />
-          <div className='app-learn-translation'>
-            {_.map(translation, (l) =>
-              l.word + (l.comment ? ' (' + l.comment + ')' : ''))
-              .join(', ')}
-          </div>
-          <div className='app-learn-examples'>
-            {examples ? examples.join('\n') : ''}
-          </div>
-        </div>
-        <div className='app-learn-footer' >
-          <Btn
-            className='app-learn-btn'
-            onClick={() => next()}>show later</Btn>
-          <Btn
-            className='app-learn-btn'
-            active
-            onClick={() => next(true)}>got it</Btn>
-        </div>
-      </Screen>
+      <React.Fragment>
+
+        <Watch word={word} onChange={this._changeWords} />
+        {_.map(words, w =>
+          <Learn key={w} word={w} animated={_.size(words) > 1} />)}
+      </React.Fragment>
     );
   }
 }
 Plugin.defaultName = 'LearnScreen';
 
-const mapState = ({ words: { listByWord } }, { word }) => ({
-  data: listByWord[word]
+const mapState = ({ words: { nextWord } }) => ({
+  word: nextWord
 });
 const mapDispatch = { navigationGoHome, next };
 

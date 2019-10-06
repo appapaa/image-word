@@ -4,6 +4,7 @@ $left_panel_width: 66px;
 .app {
   @extend .app-ui-abs;
   text-align: center;
+  overflow: hidden;
 }
 
 /**

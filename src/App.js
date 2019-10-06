@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'assets/css/App.scss';
+import 'assets/css/animate.css';
 import Menu from 'screen/Menu';
 import Learn from 'screen/Learn';
 import Test from 'screen/Test';
@@ -11,30 +12,23 @@ import _ from 'lodash';
 class App extends Component {
   renderPlugin() {
     const { path } = this.props;
-    const plugin = _.last(path);
-    switch (plugin.id) {
+    const plugin = _.last(path) || 'Menu';
+    switch (plugin) {
       case 'Menu':
-        return <Menu
-          {...plugin.params}
-        />;
+        return <Menu />;
       case 'Learn':
-        return <Learn
-          {...plugin.params}
-        />;
+        return <Learn />;
       case 'Test':
-        return <Test
-          {...plugin.params}
-        />;
+        return <Test />;
       case 'Exclude':
-        return <Exclude
-          {...plugin.params}
-        />;
+        return <Exclude />;
       default: return <div>Нет такого экрана</div>
     }
   }
   componentDidMount() {
     const { getWords, onHashChange } = this.props;
     getWords();
+    onHashChange();
     window.addEventListener("hashchange", onHashChange, false);
   }
 
