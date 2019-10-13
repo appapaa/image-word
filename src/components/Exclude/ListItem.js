@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Screen, Panel, Btn } from 'components/Base';
+import { Btn } from 'components/Base';
 import { connect } from "react-redux";
 import { changeStudy } from 'redux/words';
-import _ from 'lodash';
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 class Plugin extends Component {
     render() {
         const { data: { word }, studied, changeStudy } = this.props;

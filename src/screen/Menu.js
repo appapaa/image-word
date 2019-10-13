@@ -3,26 +3,21 @@ import { Screen, Btn, Image } from 'components/Base';
 import { connect } from "react-redux";
 import { navigationPush } from 'redux/navigation';
 import _ from 'lodash';
+import Help from 'components/Help';
 
 class Plugin extends Component {
+  state = {
+    isShowhelp: false
+  }
   _onClick = ({ id, text }) => {
-    const { navigationPush, nextWord, studyByWord } = this.props;
-    if (id === 'Test') {
-      if (_.size(studyByWord)) {
-        const list = _.sortBy(_.keys(studyByWord), () => Math.random());
-        navigationPush(id, { word: list[0] });
-      }
-      else {
-        alert('Нет слов');
-      }
-
-    }
-    else {
-      navigationPush(id, { word: nextWord });
-    }
+    const { navigationPush } = this.props;
+    navigationPush(id);
+  }
+  _showHelp = () => {
+    const { isShowhelp } = this.state;
+    this.setState({ isShowhelp: !isShowhelp })
   }
   renderBtn = ({ id, text }) => {
-    const { navigationPush, nextWord } = this.props;
     return <Btn
       className='app-menu-btn'
       key={id}
@@ -31,12 +26,19 @@ class Plugin extends Component {
   };
 
   render() {
+    const { isShowhelp } = this.state;
     return (
       <Screen className="app-menu">
         <Image className='app-menu-img' src='/menu.png' />
         <div className='app-menu-btngroup'>
           {_.map(BTNS, this.renderBtn)}
+          <Btn
+            active={isShowhelp}
+            className='app-menu-btn'
+            onClick={this._showHelp}
+          >help</Btn>
         </div>
+        {isShowhelp ? <Help /> : ''}
       </Screen>
     );
   }
@@ -44,13 +46,12 @@ class Plugin extends Component {
 const BTNS = [
   { id: 'Test', text: 'test' },
   { id: 'Learn', text: 'learn' },
-  { id: 'Exclude', text: 'exclude' },
-  { id: '__', text: 'text' },
+  { id: 'Exclude', text: 'exclude' }
 ];
 Plugin.defaultName = 'MenuScreen';
 
-const mapState = ({ words: { nextWord, studyByWord } }) => ({
-  nextWord, studyByWord
+const mapState = ({ words: { studyByWord } }) => ({
+  studyByWord
 });
 const mapDispatch = { navigationPush };
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Screen, Panel, Content, Btn, Image, Footer } from 'components/Base';
 import { connect } from "react-redux";
 import { navigationGoHome } from 'redux/navigation';
 import { next } from 'redux/words';
@@ -17,6 +16,14 @@ class Plugin extends Component {
     this.setState({
       words: words.concat(word).slice(-2)
     })
+    this._check();
+  }
+  _check = () => {
+    const { word, navigationGoHome } = this.props;
+    if (!word) {
+      navigationGoHome();
+      alert('нет слов');
+    }
   }
   render() {
     const { words } = this.state;
@@ -25,16 +32,18 @@ class Plugin extends Component {
       <React.Fragment>
 
         <Watch word={word} onChange={this._changeWords} />
-        {_.map(words, w =>
-          <Learn key={w} word={w} animated={_.size(words) > 1} />)}
+        {word
+          ? _.map(words, w =>
+            <Learn key={w} word={w} animated={_.size(words) > 1} />)
+          : ''}
       </React.Fragment>
     );
   }
 }
 Plugin.defaultName = 'LearnScreen';
 
-const mapState = ({ words: { nextWord } }) => ({
-  word: nextWord
+const mapState = ({ words: { turn } }) => ({
+  word: turn[0]
 });
 const mapDispatch = { navigationGoHome, next };
 

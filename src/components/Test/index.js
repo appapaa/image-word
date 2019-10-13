@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Screen, Panel, Content, Btn, Image, Footer } from 'components/Base';
+import { Screen, Panel, Btn } from 'components/Base';
 import { connect } from "react-redux";
 import { navigationGoHome } from 'redux/navigation';
-import { next } from 'redux/words';
+import { changeTest, onInverse } from 'redux/words';
 import _ from 'lodash';
 
 class Plugin extends Component {
@@ -14,7 +14,6 @@ class Plugin extends Component {
     firstTranslation: null,
     listInvers: [],
     cnt: null,
-    inverse: false,
     answered: false
   }
   componentDidMount() {
@@ -50,12 +49,13 @@ class Plugin extends Component {
     });
   }
   _onInverse = () => {
-    const { inverse, answered } = this.state;
+    const { answered } = this.state;
+    const { onInverse } = this.props;
 
     !answered && this.setState({
-      inverse: !inverse,
       selects: []
     });
+    onInverse();
   }
   _changeSelects = (text) => {
     const { selects, answered } = this.state;
@@ -68,7 +68,8 @@ class Plugin extends Component {
   }
   _onAnswer = () => {
     const { answered,
-      answersInverse, answers, inverse, selects } = this.state;
+      answersInverse, answers, selects } = this.state;
+    const { inverse } = this.props;
     if (answered) {
       return;
     }
@@ -82,14 +83,25 @@ class Plugin extends Component {
     });
   }
   _next = () => {
-    const { navigationGoHome } = this.props;
-    navigationGoHome();
+    const { answered, changeTest, inverse, word } = this.props;
+    const { answersInverse, answers, cnt } = this.state;
+    let studied = false;
+    if (answered) {
+      const _answers = inverse ? answersInverse : answers;
+      if (!inverse && cnt === _.size(answers)) {
+        studied = true;
+      }
+      else if (inverse && _.includes(_answers, word)) {
+        studied = true;
+      }
+    }
+    changeTest(word, studied);
   }
   render() {
     const { list, listInvers, firstTranslation, answered, cnt,
-      answersInverse, answers, inverse, selects } = this.state;
-    const { navigationGoHome, data = {}, next } = this.props;
-    const { word, examples, similar, link, translation } = data;
+      answersInverse, answers, selects } = this.state;
+    const { navigationGoHome, inverse, data = {} } = this.props;
+    const { word, similar } = data;
     const _list = inverse ? listInvers : list;
     const _answers = inverse ? answersInverse : answers;
     const _listL = _list.slice(0, 4);
@@ -158,16 +170,12 @@ class Plugin extends Component {
 }
 Plugin.defaultName = 'Test';
 
-const styles = {
-  btnLeft: {
-    borderRight: '2px solid #000'
-  },
-}
 
-const mapState = ({ words: { listByWord, studyByWord } }, { word }) => ({
+const mapState = ({ words: { inverse, listByWord, studyByWord } }, { word }) => ({
   data: listByWord[word],
+  inverse,
   listByWord, studyByWord
 });
-const mapDispatch = { navigationGoHome, next };
+const mapDispatch = { navigationGoHome, changeTest, onInverse };
 
 export default connect(mapState, mapDispatch)(Plugin);

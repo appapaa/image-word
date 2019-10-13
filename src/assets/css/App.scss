@@ -7,6 +7,7 @@ $left_panel_width: 66px;
   overflow: hidden;
 }
 
+
 /**
 * Menu
 */
@@ -20,6 +21,27 @@ $left_panel_width: 66px;
   border-left: 2px solid $color_black;
 
 }
+.app-menu-help{
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color:$color_black;
+  color:#fff; 
+  top:10vw;
+  left:10vw;
+  right: 10vw;
+  bottom: 30vw;
+  padding: 2vw;
+}
+.app-menu-help-num{
+  width: 30px;
+  line-height: 30px;
+  height: 30px;
+  margin: 10px auto;
+  background-color: #fff;
+  color: $color_black;
+  border-radius: 15px;
+}
 .app-menu-btngroup {
   margin: 0 10vw 10vw 10vw;
   height: 10px;
@@ -29,7 +51,7 @@ $left_panel_width: 66px;
   flex: 1;
 }
 .app-menu-btn {
-  border: 2px solid currentColor;
+  border: 2px solid $color_black;
   text-align: center;
   box-sizing: border-box;
   display: flex;
@@ -38,6 +60,10 @@ $left_panel_width: 66px;
   margin-top: 2vh;
   height: 10vh;
   font-size: 30px;
+  &.-active {
+    background-color: $color_black;
+    color: #fff;
+  }
 }
 
 /**

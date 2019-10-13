@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Screen, Panel, Content, Btn, Image, Footer } from 'components/Base';
+import { Screen, Panel, Btn, Image } from 'components/Base';
 import { connect } from "react-redux";
 import { navigationGoHome } from 'redux/navigation';
 import { next } from 'redux/words';

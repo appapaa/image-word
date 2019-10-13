@@ -1,5 +1,4 @@
 import getReducer from 'lib/getReducer'
-import _ from 'lodash'
 export const PREFIX_ = 'NAVIGATION_'
 
 const initialState = {

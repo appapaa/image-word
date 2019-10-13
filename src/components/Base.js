@@ -30,7 +30,7 @@ export const Btn = (props) => {
 }
 
 export const Image = (props) => {
-    const { className, onClick, src } = props;
+    const { className, src } = props;
     const _props = _.omit(props, ['className', 'src', 'onClick']);
     return (
         <div

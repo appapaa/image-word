@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Screen, Panel, Btn, Footer } from 'components/Base';
 import { connect } from "react-redux";
 import { navigationGoHome } from 'redux/navigation';
