@@ -18,6 +18,7 @@ export const Btn = (props) => {
     const _props = _.omit(props, ['className', 'type', 'onClick', 'children', 'active', 'disabled']);
     return (
         <div
+            ref={div => props.getRef && props.getRef(div)}
             {..._props}
             className={'app-ui-btn' + type
                 + (className ? ' ' + className : '')

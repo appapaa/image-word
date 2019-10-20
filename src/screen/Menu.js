@@ -6,6 +6,7 @@ import _ from 'lodash';
 import Help from 'components/Help';
 
 class Plugin extends Component {
+  _helpBottom = null;
   state = {
     isShowhelp: false
   }
@@ -24,7 +25,12 @@ class Plugin extends Component {
       onClick={() => this._onClick({ id, text })}
     >{text}</Btn>
   };
-
+  componentDidMount() {
+    this._helpBottom = `calc(${Math.ceil(this._help.offsetHeight)}px + 5vw + 2vh)`;
+  }
+  _getRefHelp = (div) => {
+    this._help = div;
+  }
   render() {
     const { isShowhelp } = this.state;
     return (
@@ -33,12 +39,13 @@ class Plugin extends Component {
         <div className='app-menu-btngroup'>
           {_.map(BTNS, this.renderBtn)}
           <Btn
+            getRef={this._getRefHelp}
             active={isShowhelp}
             className='app-menu-btn'
             onClick={this._showHelp}
           >help</Btn>
         </div>
-        {isShowhelp ? <Help /> : ''}
+        {isShowhelp ? <Help bottom={this._helpBottom} /> : ''}
       </Screen>
     );
   }

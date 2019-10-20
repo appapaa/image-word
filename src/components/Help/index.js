@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 class Plugin extends Component {
   render() {
+    const { bottom } = this.props;
     return (
-      <div className='app-menu-help'>
+      <div className='app-menu-help' style={{ bottom }}>
         <div className='app-menu-help-num'>1</div>
         <div className='app-menu-help-text'>
           изучай новый материал с

@@ -1,12 +1,12 @@
 @import "_ui.scss";
 
 $left_panel_width: 66px;
+$margin: 5vw;
 .app {
   @extend .app-ui-abs;
   text-align: center;
   overflow: hidden;
 }
-
 
 /**
 * Menu
@@ -16,24 +16,23 @@ $left_panel_width: 66px;
   display: flex;
   flex-direction: column;
 }
-.app-line-black{
+.app-line-black {
   height: inherit;
   border-left: 2px solid $color_black;
-
 }
-.app-menu-help{
+.app-menu-help {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color:$color_black;
-  color:#fff; 
-  top:10vw;
-  left:10vw;
-  right: 10vw;
+  background-color: $color_black;
+  color: #fff;
+  top: $margin;
+  left: $margin;
+  right: $margin;
   bottom: 30vw;
   padding: 2vw;
 }
-.app-menu-help-num{
+.app-menu-help-num {
   width: 30px;
   line-height: 30px;
   height: 30px;
@@ -43,7 +42,7 @@ $left_panel_width: 66px;
   border-radius: 15px;
 }
 .app-menu-btngroup {
-  margin: 0 10vw 10vw 10vw;
+  margin: 0 $margin $margin $margin;
   height: 10px;
   display: flex;
   flex-direction: column;
@@ -231,11 +230,10 @@ $left_panel_width: 66px;
   display: flex;
   border-bottom: 2px solid $color_gray;
 }
-.app-test-info{
+.app-test-info {
   height: 70px;
   line-height: 70px;
   border-top: 2px solid $color_gray;
-
 }
 .app-test-content {
   height: 10px;
@@ -253,7 +251,7 @@ $left_panel_width: 66px;
   height: 100px;
 }
 .app-test-list-left,
-.app-test-list-right{
+.app-test-list-right {
   width: calc(50% - 5px);
   height: 100%;
   float: left;

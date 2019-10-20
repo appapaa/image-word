@@ -18,6 +18,9 @@
 .env.test.local
 .env.production.local
 
+# keystore
+az.keystore
+
 # cordova
 /hooks
 /platforms
