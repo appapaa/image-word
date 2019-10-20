@@ -15,9 +15,6 @@
     <access origin="*" />
     <preference name="splash-screen-duration" value="0" />
     <preference name="SplashScreenDelay" value="10000" />
-    <gap:config-file platform="android" parent="/manifest">
-        <application android:theme="@android:style/Theme.NoTitleBar"></application>
-    </gap:config-file>
     <platform name="android">
         <icon src="res/android/drawable-ldpi/ic_launcher.png" density="ldpi" />
         <icon src="res/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
