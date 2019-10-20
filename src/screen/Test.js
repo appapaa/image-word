@@ -5,6 +5,7 @@ import { next } from 'redux/words';
 import _ from 'lodash';
 import Watch from 'components/Watch';
 import Test from 'components/Test';
+import message from 'lib/message';
 
 class Plugin extends Component {
   state = {
@@ -22,7 +23,7 @@ class Plugin extends Component {
     const { word, navigationGoHome } = this.props;
     if (!word) {
       navigationGoHome();
-      alert('нет слов');
+      message('Нечего тестировать.');
     }
   }
   render() {

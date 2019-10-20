@@ -9,6 +9,39 @@ $margin: 5vw;
 }
 
 /**
+* message
+*/
+
+.app-message_container {
+  @extend .app-ui-abs;
+  background: #ffffffa8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-message {
+  background-color: $color_black;
+  color: #fff;
+  max-height: calc(100% - #{2 * $margin});
+  width: calc(100% - #{2 * $margin});
+}
+.app-message-header {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+  height: 60px;
+}
+.app-message-title {
+  font-size: 24px;
+  white-space: pre-wrap;
+}
+.app-message-description {
+  margin-top: 10px;
+  padding: 20px;
+  white-space: pre-wrap;
+}
+
+/**
 * Menu
 */
 

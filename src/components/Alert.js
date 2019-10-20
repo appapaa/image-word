@@ -1,7 +1,9 @@
-import React from 'react';
-export const Alert = React.memo(() => {
-    return <div id='alert'>
-        Тест
-    </div>
+import React, { Component } from 'react';
+class Plugin extends Component {
+    render() {
+        return <div id='alert_window' />
+    }
+};
+Plugin.defaultName = 'Test';
 
-});
+export default Plugin;

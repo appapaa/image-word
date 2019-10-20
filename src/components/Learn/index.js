@@ -10,7 +10,7 @@ class Plugin extends Component {
     const { navigationGoHome, data = {}, next, animated } = this.props;
     const { word, examples, similar, link, translation } = data;
     return (
-      <Screen className={"app-learn" + (animated ? ' animated fadeInRight faster' : '')}>
+      <Screen className={"app-learn" + (animated ? ' fadeInRight faster' : '')}>
         <Panel className="app-learn-panel">
           <Btn
             className='app-nav-btn'

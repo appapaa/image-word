@@ -9,6 +9,7 @@ import Exclude from 'screen/Exclude';
 import { getWords } from 'redux/words';
 import { onHashChange } from 'redux/navigation';
 import _ from 'lodash';
+import Alert from 'components/Alert';
 class App extends Component {
   renderPlugin() {
     const { path } = this.props;
@@ -36,6 +37,7 @@ class App extends Component {
     return (
       <div className="app">
         {this.renderPlugin()}
+        <Alert />
       </div>
     );
   }
