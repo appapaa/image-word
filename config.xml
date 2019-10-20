@@ -19,11 +19,12 @@
         <preference name ="FadeSplashScreen" value ="false"/> 
         <preference name ="ShowSplashScreenSpinner" value ="false"/> 
     </plugin>  
-    <content src="index.html" />
-    <access origin="*" />
+    <preference name="orientation" value="portrait" />
+    <preference name="android-minSdkVersion" value="14"/>
     <icon src="icon.png" />
     <splash src="splash.png" />
     <platform name="android">
+        <preference name="ShowSplashScreenSpinner" value="false"/>
         <icon src="res/android/drawable-ldpi/ic_launcher.png" density="ldpi" />
         <icon src="res/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
         <icon src="res/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
@@ -33,5 +34,7 @@
         <splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
         <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
         <splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
-     </platform>
+    </platform>
+    <content src="index.html" />
+    <access origin="*" />
 </widget>
