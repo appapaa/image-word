@@ -33,8 +33,10 @@ class Plugin extends Component {
   }
   render() {
     const { isShowhelp } = this.state;
+    const { cnt } = this.props;
     return (
       <Screen className="app-menu">
+        <div className='app-cnt'>слов к обучению: {cnt}</div>
         <Image className='app-menu-img' src='/menu.png' />
         <div className='app-menu-btngroup'>
           {_.map(BTNS, this.renderBtn)}
@@ -57,8 +59,9 @@ const BTNS = [
 ];
 Plugin.defaultName = 'MenuScreen';
 
-const mapState = ({ words: { studyByWord } }) => ({
-  studyByWord
+const mapState = ({ words: { listByWord, studyByWord } }) => ({
+  studyByWord,
+  cnt: _.size(listByWord) - _.size(studyByWord) || 'нет'
 });
 const mapDispatch = { navigationPush };
 

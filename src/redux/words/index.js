@@ -36,7 +36,7 @@ export const getWords = () => (dispatch, getState, { ajax }) => {
         }
     })
 }
-export const getTurn = () => (dispatch, getState) => {
+export const getTurn = (withFirst) => (dispatch, getState) => {
     const { words: { turn, listByWord, studyByWord } } = getState();
     let k = 0;
     const list = [];
@@ -54,7 +54,10 @@ export const getTurn = () => (dispatch, getState) => {
             k++;
         }
     })
-    const _turn = _.map(_.sortBy(list, 'index'), 'word');
+    let _turn = _.map(_.sortBy(list, 'index'), 'word');
+    if (withFirst) {
+        _turn = _.union([nextWord], _turn);
+    }
 
     setLocalStore('words:turn', _turn);
 
@@ -176,6 +179,6 @@ export const next = (studied = false) => (dispatch, getState) => {
             step: step + 1
         }
     })
-    dispatch(getTurn());
+    dispatch(getTurn(true));
     dispatch(navigationPush('Learn', { word: _.first(turn) }));
 }

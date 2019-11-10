@@ -259,6 +259,9 @@ $margin: 5vw;
   display: flex;
   flex-direction: column;
 }
+.app-cnt {
+  color: $color_gray;
+}
 .app-test-panel {
   display: flex;
   border-bottom: 2px solid $color_gray;

@@ -13,13 +13,13 @@ export const Footer = ({ children, className }) =>
 export const Content = ({ children, className }) =>
     <div className={'app-ui-content' + (className ? ' ' + className : '')}>{children}</div>;
 
-export const Btn = (props) => {
-    const { className, onClick, type = '', children, active, disabled } = props;
+export const Btn = React.memo((props) => {
+    const { className, onClick, type = '', children, active, disabled, getRef } = props;
     const _props = _.omit(props, ['className', 'type', 'onClick', 'children', 'active', 'disabled']);
     return (
         <div
-            ref={div => props.getRef && props.getRef(div)}
-            {..._props}
+            ref={div => getRef && getRef(div)}
+            {..._.omit(_props, 'getRef')}
             className={'app-ui-btn' + type
                 + (className ? ' ' + className : '')
                 + (active ? ' -active' : '')
@@ -28,7 +28,7 @@ export const Btn = (props) => {
             {children}
         </div>
     );
-}
+})
 
 export const Image = (props) => {
     const { className, src } = props;
